@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
-
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
@@ -15,20 +15,47 @@
 \pagestyle{fancy}
 \usepackage{longtable}
 \usepackage{tabu}
-
+\usepackage{pdflscape}
 \graphicspath{ {images/} }
 
 \newcommand{\helv}{\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
 
+
+
 %--------------- Variables à modifier à chaque rendu ---------------
-\title{Rendu 0}
+\title{Rendu 1}
 \newcommand{\daterendu}{12/10/2017}
 %-------------------------------------------------------------------
-
+\setlist[itemize]{noitemsep, topsep=1pt}
 \makeatletter\let\Title\@title\makeatother
 
 % Décommenter pour commencer les chapitres à 0
 %\setcounter{section}{-1}
+
+
+%----------------------------------------------------------------------------------------
+% CODE DISPLAY
+%----------------------------------------------------------------------------------------
+
+\lstset{
+ language=Java,
+ basicstyle=\ttfamily,
+ keywordstyle=\color{purple},
+ stringstyle=\color{red},
+ commentstyle=\color{green},
+ morecomment=[s][\color{blue}]{/**}{*/},
+ tabsize=3,
+ showspaces=false,
+ %frame=single,
+ showstringspaces=false,
+ keywordstyle={[2]\color{red}\bf},
+ inputencoding=utf8,
+ breaklines=true,
+ extendedchars=true,
+ literate={à}{{\`a}}1 {ê}{{\^e}}1 {é}{{\'e}}1 {è}{{\'e}}1 {ô}{{\^o}}1 {î}{{\^i}}1 {ç}{{\c{c}}}1 {delta}{{\tiny$\Delta$}}1
+}
+
+
 
 \begin{document}
 
@@ -51,7 +78,7 @@
 \end{center}
 
 \newpage
-
+ {\setlength{\baselineskip}{1.5\baselineskip}
 \fancyhf{}
 \renewcommand{\headrulewidth}{1pt}
 \fancyhead[L]{\helv Nom du Groupe}
@@ -65,7 +92,7 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \section{Les créatures du monde:}
-\begin{itemize}
+\begin{itemize}[noitemsep]
 	\item Une Orque unique
 	\item Des requins
 	\item Des pingouins
@@ -78,7 +105,7 @@
 		\item Un déplacement par tour
 		\item Déplacement aléatoire sans foncer dans un élément
 		\item Reste dans l'eau et n'a pas besoin de se nourrir
-	\end{itemize}
+	\end{itemize}	
 	Les requins:
 	\begin{itemize}
 		\item Sentent les pingouins dans l'eau et essaient d'aller manger le plus proche. (donc ils connaissent la position du pingouin le plus proche d'eux qui se situe dans l'eau)
@@ -88,6 +115,7 @@
 		\item Pour manger, un requin doit se trouver sur la même case qu'un pingouin.
 		\item Ils ne peuvent pas aller sur la banquise.
 	\end{itemize}
+\newpage
 	Les pingouins:
 	\begin{itemize}
 		\item Se déplacent d'une case un tour sur deux.
@@ -99,9 +127,8 @@
 	\end{itemize}
 	La banquise:
 	\begin{itemize}
-		\item A chaque tour, aléatoirement, on choisit si oui ou non on modifie la banquise (pour chaque élément de la banquise) puis si elle doit réduire ou grandire. Ensuite on l'aggrandi ou rétrécie de 1 case d'après l'espace disponible. Dès qu'il ne reste qu'une case, la banquise disparaît complètement et met le pingouin à l'eau s'il y en avait un dessus.
-	\end{itemize}
-\newpage
+		\item A chaque tour, aléatoirement, on choisit si oui ou non on modifie la banquise (pour chaque élément de la banquise) puis si elle doit réduire ou grandire. Ensuite on l'aggrandi ou rétrécie de 1 case d'après l'espace disponible.\newline  Dès qu'il ne reste qu'une case, la banquise disparaît complètement et met le pingouin à l'eau s'il y en avait un dessus.
+	\end{itemize}	
 	Général:
 	\begin{itemize}
 		\item Les déplacements se font d'une case à la fois et seulement par les côtés, pas en diagonale.
@@ -112,7 +139,14 @@
 	\begin{center}
 		\includegraphics[width=5cm]{schema_Pingouin.png}\\[0.3cm]
 	\end{center}
+\newpage
+\clearpage\pagestyle{empty}
+\begin{landscape}
+
 \section{Diagramme d'activités}
 
-			\includegraphics[width=15cm]{WaterWorld.jpg}\\[0.3cm]
+		 \makebox[\textwidth]{\includegraphics[width=\paperwidth]{WaterWorld.jpg}}	
+\end{landscape}
+
+
 \end{document}
