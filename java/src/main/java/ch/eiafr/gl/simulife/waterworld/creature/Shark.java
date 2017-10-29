@@ -1,10 +1,12 @@
 package ch.eiafr.gl.simulife.waterworld.creature;
 
+import java.awt.Color;
+
 import ch.eiafr.gl.simulife.model.ICreature;
 
 abstract class Shark implements ICreature {
     private int id;
-   
+    public Color color = Color.RED;
     int hunger=10;
     public  boolean isHunger() {
         return hunger==0;

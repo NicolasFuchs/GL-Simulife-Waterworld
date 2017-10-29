@@ -10,6 +10,8 @@ public class WhiteShark extends Shark {
     private Random rd;
     private int row;
     private int col;
+    public String icon="shark.gif";
+    public String id="W";
 
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];

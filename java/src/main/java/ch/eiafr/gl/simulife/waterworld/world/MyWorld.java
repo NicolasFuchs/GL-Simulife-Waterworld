@@ -43,15 +43,15 @@ public class MyWorld extends AWorld {
     @Override
     public String getStringFor(ICreature creature) {
         if (creature instanceof Orca)
-            return "O";
+            return ((Orca) creature).id;
         if (creature instanceof Penguin)
-            return "P";
+            return ((Penguin) creature).id;
         if (creature instanceof WhiteShark)
-            return "W";
+            return ((WhiteShark) creature).id;
         if (creature instanceof HammerheadShark)
-            return "H";
+            return ((HammerheadShark) creature).id;
         if (creature instanceof Ice)
-            return "I";
+            return ((Ice) creature).id;
 
         return "_";
     }
@@ -61,15 +61,15 @@ public class MyWorld extends AWorld {
 
         String path = "empty.gif";
         if (creature instanceof Orca)
-            path = "orca.gif";
+            path = ((Orca) creature).icon;
         if (creature instanceof Penguin)
-            path = "pingouin.gif";
+            path = ((Penguin) creature).icon;
         if (creature instanceof WhiteShark)
-            path = "shark.gif";
+            path = ((WhiteShark) creature).icon;
         if (creature instanceof HammerheadShark)
-            path = "sharkHammer.gif";
+            path = ((HammerheadShark) creature).icon;
         if (creature instanceof Ice)
-            path = "ice.gif";
+            path = ((Ice) creature).icon;
 
         return new ImageIcon(ClassLoader.getSystemResource(path));
     }
@@ -88,13 +88,13 @@ public class MyWorld extends AWorld {
     @Override
     public Color getColorFor(ICreature creature) {
         if (creature instanceof Ice)
-            return Color.BLUE;
+            return ((Ice) creature).color;
         if (creature instanceof WhiteShark || creature instanceof HammerheadShark)
-            return Color.RED;
+            return ((WhiteShark)creature).color;
         if (creature instanceof Orca)
-            return Color.GREEN;
+            return ((Orca) creature).color;
         if (creature instanceof Penguin)
-            return Color.YELLOW;
+            return ((Penguin) creature).color;
 
         return Color.WHITE;
     }

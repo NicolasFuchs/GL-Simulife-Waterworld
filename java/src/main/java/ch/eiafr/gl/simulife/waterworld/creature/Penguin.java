@@ -1,5 +1,6 @@
 package ch.eiafr.gl.simulife.waterworld.creature;
 
+import java.awt.Color;
 import java.util.Random;
 
 import ch.eiafr.gl.simulife.model.ICreature;
@@ -12,6 +13,9 @@ public class Penguin implements ICreature {
     private int col;
     private int rowShark;
     private int colShark;
+    public String icon="pingouin.gif";
+    public String id="P";
+    public Color color=Color.YELLOW;
 
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];
