@@ -13,7 +13,7 @@ public class WhiteShark extends Shark {
 
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];
-        if (firstMove) {
+//        if (firstMove) {
             rd = new Random();
             do {
                 row = rd.nextInt(game.length);
@@ -24,7 +24,7 @@ public class WhiteShark extends Shark {
 
             firstMove = false;
 
-        }
+//        }
 
         // TODO Auto-generated method stub
         return move;

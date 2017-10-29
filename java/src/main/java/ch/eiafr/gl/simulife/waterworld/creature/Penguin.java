@@ -15,7 +15,7 @@ public class Penguin implements ICreature {
 
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];
-        if (firstMove) {
+//        if (firstMove) {
             rd = new Random();
             do {
                 row = rd.nextInt(game.length);
@@ -26,14 +26,14 @@ public class Penguin implements ICreature {
 
             firstMove = false;
 
-        } else {
-            if (isSharkSee(game)) {
-                moveRdn(game);
-            } else {
-
-            }
-
-        }
+//        } else {
+//            if (isSharkSee(game)) {
+//                moveRdn(game);
+//            } else {
+//
+//            }
+//
+//        }
 
         // TODO Auto-generated method stub
         return move;
