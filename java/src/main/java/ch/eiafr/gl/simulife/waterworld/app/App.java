@@ -31,9 +31,17 @@ public class App {
 
         Orca orca = new Orca();
         WhiteShark[] whiteSharks = new WhiteShark[5];
+        for(int i=0; i<whiteSharks.length;i++)
+            whiteSharks[i]=new WhiteShark();
         HammerheadShark[] hammerheadSharks = new HammerheadShark[5];
+        for(int i=0; i<hammerheadSharks.length;i++)
+            hammerheadSharks[i]=new HammerheadShark();
         Penguin[] penguins = new Penguin[5];
+        for(int i=0; i<penguins.length;i++)
+            penguins[i]=new Penguin();
         Ice[] ice = new Ice[10];
+        for(int i=0; i<ice.length;i++)
+            ice[i]=new Ice();
         boolean game_not_finished = true;
         int loop_id = 0;
         Random random = new Random();
@@ -47,22 +55,25 @@ public class App {
             for (int i = 0; i < whiteSharks.length; i++) {
                 int[] move_whiteShark = myWorld.calcMove(whiteSharks[i]);
                 myWorld.moveCreature(whiteSharks[i], move_whiteShark[0], move_whiteShark[1]);
-                myWorld.updateView();
-                waitUpdate();
+               
             }
-            for (int i = 0; i < whiteSharks.length; i++) {
+            myWorld.updateView();
+            waitUpdate();
+            for (int i = 0; i < hammerheadSharks.length; i++) {
                 int[] move_hammerheadShark = myWorld.calcMove(hammerheadSharks[i]);
-                myWorld.moveCreature(whiteSharks[i], move_hammerheadShark[0], move_hammerheadShark[1]);
-                myWorld.updateView();
-                waitUpdate();
+                myWorld.moveCreature(hammerheadSharks[i], move_hammerheadShark[0], move_hammerheadShark[1]);
+               
             }
+            myWorld.updateView();
+            waitUpdate();
             if (loop_id++ % 2 == 0) {
                 for (int i = 0; i < penguins.length; i++) {
                     int[] move_penguin = myWorld.calcMove(penguins[i]);
                     myWorld.moveCreature(penguins[i], move_penguin[0], move_penguin[1]);
-                    myWorld.updateView();
-                    waitUpdate();
+                   
                 }
+                myWorld.updateView();
+                waitUpdate();
             }
             for (int i = 0; i < ice.length; i++) {
                 int[] move_ice = new int[2];
