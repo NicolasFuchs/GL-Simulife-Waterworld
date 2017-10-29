@@ -45,7 +45,7 @@ public class App {
         boolean game_not_finished = true;
         int loop_id = 0;
         Random random = new Random();
-
+        init();
         while (game_not_finished) {
 
             int[] moveOrca = myWorld.calcMove(orca);
