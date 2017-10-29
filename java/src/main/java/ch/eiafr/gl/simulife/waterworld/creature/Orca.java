@@ -17,13 +17,20 @@ public class Orca implements ICreature {
             rd = new Random();
             row = rd.nextInt(game.length);
             col = rd.nextInt(game.length);
-            move[0] = row;
-            move[1] = col;
+           
             firstMove = false;
+            System.out.println(game.length);
+        }else {
+            do {
+                row = rd.nextInt(game.length);
+                col = rd.nextInt(game.length);
+            } while (game[row][col] != null);
         }
-
-        // TODO Auto-generated method stub
+        move[0] = row;
+        move[1] = col;
         return move;
     }
+
+ 
 
 }
