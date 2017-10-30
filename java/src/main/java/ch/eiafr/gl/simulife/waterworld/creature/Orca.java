@@ -23,7 +23,6 @@ public class Orca implements ICreature {
             col = rd.nextInt(game.length);
            
             firstMove = false;
-            System.out.println(game.length);
         }else {
             do {
                 row = rd.nextInt(game.length);
