@@ -1,6 +1,8 @@
 package ch.eiafr.gl.simulife.waterworld.world;
 
 import java.awt.Color;
+import java.util.LinkedList;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -18,8 +20,10 @@ public class MyWorld extends AWorld {
 	private int nbRows = 6;
 
 	private ch.eiafr.gl.simulife.model.ICreature[][] game;
+	private Random rd;
 
 	public MyWorld(int nbCols, int nbRows) {
+		rd=new Random();
 		this.nbCols = nbCols;
 		this.nbRows = nbRows;
 		this.game = new ICreature[nbCols][nbRows];
@@ -132,6 +136,41 @@ public class MyWorld extends AWorld {
 	public int[] removeIce(Ice ice) {
 		int[] iceChange = ice.removeIce(game);
 		return iceChange;
+	}
+
+	public void summonCreature(LinkedList<ICreature> list) {
+		int row,col;
+		while(!list.isEmpty()) {
+			ICreature creature = list.poll();
+			do {
+				row = rd.nextInt(game.length);
+				col = rd.nextInt(game.length);
+			} while (game[row][col] != null);	
+			game[row][col]=creature;
+			 
+			 if (creature instanceof Orca) {
+					Orca orc = (Orca) creature;
+					 orc.setPosition(row,col);;
+				}
+				if (creature instanceof Penguin) {
+					Penguin p = (Penguin) creature;
+					p.setPosition(row,col);
+				}
+				if (creature instanceof WhiteShark) {
+					WhiteShark w = (WhiteShark) creature;
+					w.setPosition(row,col);
+				}
+				if (creature instanceof HammerheadShark) {
+					HammerheadShark h = (HammerheadShark) creature;
+					h.setPosition(row,col);
+				}
+				if (creature instanceof Ice)
+					((Ice) creature).setPosition(row,col);
+			
+		}
+		
+
+			
 	}
 
 }

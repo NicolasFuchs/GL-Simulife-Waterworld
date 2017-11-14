@@ -17,27 +17,15 @@ public class Penguin implements ICreature {
 	public String id = "P";
 	public Color color = Color.YELLOW;
 
+	public void setPosition(int row,int col) {
+		this.row=row;
+		this.col=col;
+	}
+	
 	public int[] calcMove(ICreature[][] game) {
 		int[] move = new int[2];
-		if (firstMove) {
-			rd = new Random();
-			do {
-				row = rd.nextInt(game.length);
-				col = rd.nextInt(game.length);
-			} while (game[row][col] != null);
-			move[0] = row;
-			move[1] = col;
+		
 
-			firstMove = false;
-
-		} else {
-			if (isSharkSeen(game)) {
-
-			} else {
-				moveRdn(game);
-			}
-
-		}
 
 		return move;
 	}
@@ -50,6 +38,7 @@ public class Penguin implements ICreature {
 		if (row == 0 && col == 0) {
 			// 5 case in coin
 			ICreature crea = game[tmpRow][tmpCol];
+			
 			if (crea instanceof WhiteShark || crea instanceof HammerheadShark) {
 				rowShark = tmpRow;
 				colShark = tmpCol;

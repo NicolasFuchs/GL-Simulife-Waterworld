@@ -7,33 +7,39 @@ import ch.eiafr.gl.simulife.model.ICreature;
 
 public class Orca implements ICreature {
 
-    boolean firstMove = true;
-    private Random rd;
-    private int row;
-    private int col;
-    public String icon="orca.gif";
-    public String id="O";
-    public Color color=Color.GREEN;
+	private static Orca instance = null;
 
-    public int[] calcMove(ICreature[][] game) {
-        int[] move = new int[2];
-        if (firstMove) {
-            rd = new Random();
-            row = rd.nextInt(game.length);
-            col = rd.nextInt(game.length);
-           
-            firstMove = false;
-        }else {
-            do {
-                row = rd.nextInt(game.length);
-                col = rd.nextInt(game.length);
-            } while (game[row][col] != null);
-        }
-        move[0] = row;
-        move[1] = col;
-        return move;
-    }
+	boolean firstMove = true;
+	private static Random rd;
+	private int row;
+	private int col;
+	public String icon = "orca.gif";
+	public String id = "O";
+	public Color color = Color.GREEN;
 
- 
+	public void setPosition(int row,int col) {
+		this.row=row;
+		this.col=col;
+	}
+	public int[] calcMove(ICreature[][] game) {
+		int[] move = new int[2];
+
+		do {
+			row = rd.nextInt(game.length);
+			col = rd.nextInt(game.length);
+		} while (game[row][col] != null);
+
+		move[0] = row;
+		move[1] = col;
+		return move;
+	}
+
+	public static Orca getInstance() {
+		if (instance == null) {
+			instance = new Orca();
+			rd = new Random();
+		}
+		return instance;
+	}
 
 }

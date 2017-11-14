@@ -13,6 +13,11 @@ public class WhiteShark extends Shark {
     public String icon="shark.gif";
     public String id="W";
 
+	public void setPosition(int row,int col) {
+		this.row=row;
+		this.col=col;
+	}
+	
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];
 //        if (firstMove) {

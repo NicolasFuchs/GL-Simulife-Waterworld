@@ -13,6 +13,10 @@ public class HammerheadShark extends Shark {
     public String icon = "sharkHammer.gif";
     public String id = "H";
     
+	public void setPosition(int row,int col) {
+		this.row=row;
+		this.col=col;
+	}
 
     public int[] calcMove(ICreature[][] game) {
         int[] move = new int[2];
