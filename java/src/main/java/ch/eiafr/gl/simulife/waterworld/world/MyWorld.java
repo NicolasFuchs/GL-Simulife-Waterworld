@@ -173,4 +173,13 @@ public class MyWorld extends AWorld {
 			
 	}
 
+	
+
+	public void summonCreature(Ice ice, int row, int col) {
+		ice.setPosition(row, col);
+		game[row][col]=ice;
+		// TODO Auto-generated method stub
+		
+	}
+
 }
