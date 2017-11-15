@@ -1,0 +1,4 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Diagramme de classe}{1}
+\contentsline {section}{\numberline {2}Diagramme de s\IeC {\'e}quence}{2}
+\contentsline {section}{\numberline {3}Pattern command}{3}
