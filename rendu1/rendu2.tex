@@ -91,18 +91,42 @@
 \fancyfoot[R]{\helv \textbf{Page \thepage{} sur \pageref{LastPage}}}
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\section{Diagramme de classe}
 
 \clearpage\pagestyle{empty}
 \begin{landscape}
-	
-	\section{Diagramme de séquence}
-	
-	\makebox[\textwidth]{\includegraphics[width=\paperwidth]{WaterWorld.jpg}}	
+	\section{Diagramme de classe}
+		On peut voir ici en vert le pattern observeur, en jaune le pattern Factory ainsi qu'en orange le pattern singleton. Le pattern command est mis en évidence à la fin de ce document.\newline
+	\includegraphics[scale=0.8]{Class.jpg}
 \end{landscape}
+
+
+\clearpage\pagestyle{empty}
+\begin{landscape}
+	\section{Diagramme de séquence}
+	\includegraphics[scale=0.52]{Sequence.jpg}
+\end{landscape}
+	
+\clearpage\pagestyle{empty}
+\begin{landscape}
+	\section{Diagramme de séquence}
+	\includegraphics[scale=0.52]{Sequence2.jpg}
+\end{landscape}
+
+
+\clearpage\pagestyle{empty}
+\begin{landscape}
+	\section{Diagramme de séquence}
+	\includegraphics[scale=0.4]{Sequence_r1.jpg}\newline
+\rule{\linewidth}{.5pt}
+	\includegraphics[scale=0.45]{Sequence_r2.jpg}
+\end{landscape}
+
+
 
 \section{Pattern command}
 
+Nous avons appliqué le pattern command au déplacement que doivent faire les éléments du jeu (move). Pour cela nous l'avons implémenté comme sur le diagramme de classe ci-dessous. \newline
 
+	\includegraphics[scale=1]{command.jpg}
 
 \end{document}
